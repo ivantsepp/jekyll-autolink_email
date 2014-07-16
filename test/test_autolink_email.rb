@@ -48,5 +48,13 @@ class Jekyll::AutolinkEmailTest < Minitest::Test
       @autolink_email.generate(@site)
       assert_equal '<div>ivan.tse1@gmail.com</div>', @page.content
     end
+
+    should 'escape email' do
+      @site.config['autolink_email']['escape'] = true
+      escaped_email_link = '<div><a href="mailto:ivan.tse1%40gmail.com">ivan&#046;tse1&#064;gmail&#046;com</a></div>'
+      @autolink_email.instance_variable_set(:@site, @site)
+      @autolink_email.send(:autolinkify, @page)
+      assert_equal escaped_email_link, @page.content
+    end
   end
 end

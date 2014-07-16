@@ -31,6 +31,8 @@ autolink_email:
   skip_tags: ['div']            # tags to skip
 ```
 
+Jekyll::AutolinkEmail also provides a `escape: true` option. Turning this on will html encode the email address and url encode the link to prevent spam.
+
 ## Contributing
 
 1. Fork it ( https://github.com/ivantsepp/jekyll-autolink_email/fork )
