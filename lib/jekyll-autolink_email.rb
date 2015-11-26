@@ -21,7 +21,7 @@ module Jekyll
     def generate(site)
       @site = site
       site.pages.each { |page| autolinkify page if page.html?}
-      site.posts.each { |page| autolinkify page }
+      site.posts.docs.each { |page| autolinkify page }
     end
 
     private
