@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-autolink_email"
-  spec.version       = "0.0.2"
+  spec.version       = "0.1.0"
   spec.authors       = ["Ivan Tse"]
   spec.email         = ["ivan.tse1@gmail.com"]
   spec.summary       = "Autolink emails for your Jekyll site."
@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "jekyll", '~> 2.0'
+  spec.add_dependency "jekyll", '~> 3.0'
   spec.add_dependency "rinku", '~> 1.7.0'
 
   spec.add_development_dependency "bundler", "~> 1.6"
