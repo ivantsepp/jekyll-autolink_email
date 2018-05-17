@@ -4,7 +4,7 @@ class Jekyll::AutolinkEmailTest < Minitest::Test
   context 'AutolinkEmail' do
 
     setup do
-      @site = Jekyll::Site.new(Jekyll::Configuration::DEFAULTS)
+      @site = Jekyll::Site.new(Jekyll::Configuration::DEFAULTS.dup)
       @autolink_email = Jekyll::AutolinkEmail.new(@site.config)
       @page = Jekyll::Page.new(@site, File.expand_path('../../', __FILE__), '', 'README.md')
       @page.instance_variable_set(:@content, '<div>ivan.tse1@gmail.com</div>')
