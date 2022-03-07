@@ -27,7 +27,7 @@ module Jekyll
     private
 
     def autolinkify(page)
-      page.content = Rinku.auto_link(page.content, :email_addresses, link_attr, skip_tags) do |email_address|
+      page.content = +Rinku.auto_link(page.content, :email_addresses, link_attr, skip_tags) do |email_address|
         if escape?
           email_addresses << email_address.dup
           html_encode(email_address)
