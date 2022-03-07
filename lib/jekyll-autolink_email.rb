@@ -1,8 +1,11 @@
 require 'jekyll'
 require 'rinku'
+require 'jekyll-email-protect'
 
 module Jekyll
   class AutolinkEmail < Jekyll::Generator
+
+    include Jekyll::EmailProtect::EmailProtectionFilter
 
     HTML_ENTITIES = {
       '@' => '&#064;',
@@ -48,7 +51,7 @@ module Jekyll
     # A hack since Rinku doesn't offer a hook into changing what the link is
     def url_encode_email_addresses(content)
       content.gsub!(/mailto:(#{email_addresses.join('|')})/) do |m|
-        m[$1] = ERB::Util.url_encode($1)
+        m[$1] = encode_email($1)
         m
       end
     end
